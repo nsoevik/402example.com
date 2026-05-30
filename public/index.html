@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>402 Example Domain</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>402 Example Domain</h1>
+    <p>
+      This domain is for use in illustrative examples in documents. You may use
+      this domain in literature without prior coordination or asking for
+      permission.
+    </p>
+    <p>
+      The following content requires payment to view.
+    </p>
+
+    <!-- Gated content box -->
+    <div class="gated-box" id="gated-box">
+      <div class="gated-text" id="gated-text"></div>
+
+      <div class="gated-overlay" id="gated-overlay">
+        <div class="overlay-inner">
+          <div class="http-code">402</div>
+          <div class="overlay-label">Payment Required</div>
+          <div class="overlay-sub" id="overlay-sub">Connect your wallet to pay</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment UI -->
+    <div id="payment-ui">
+      <div id="step-connect">
+        <button class="btn-primary" id="connect-btn" onclick="connectWallet()">
+          Connect MetaMask
+        </button>
+      </div>
+
+      <div id="step-pay" class="hidden">
+        <p class="payment-instruction">
+          Pay <strong id="pay-amount"></strong> USDC on Arc testnet to unlock the content.
+          Your wallet will ask you to sign — no gas required from you.
+        </p>
+        <button class="btn-primary" id="pay-btn" onclick="pay()">
+          Pay with MetaMask
+        </button>
+      </div>
+
+      <div id="step-pending" class="hidden">
+        <div class="polling-row">
+          <div class="spinner"></div>
+          <span id="pending-msg">Submitting payment…</span>
+        </div>
+      </div>
+
+      <div id="step-done" class="paid-msg hidden">
+        Payment confirmed. Revealing content…
+      </div>
+    </div>
+
+    <p><a href="https://www.iana.org/domains/reserved">More information...</a></p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
